@@ -36,43 +36,33 @@ function App() {
   const practiceAreas = [
     {
       icon: Building2,
-      title: 'Corporate Law',
-      description: 'Comprehensive legal counsel for businesses, mergers, acquisitions, and corporate governance matters.'
-    },
-    {
-      icon: Gavel,
-      title: 'Criminal Defense',
-      description: 'Vigorous representation in criminal proceedings, protecting your rights at every stage of the legal process.'
-    },
-    {
-      icon: Heart,
-      title: 'Family & Matrimonial Law',
-      description: 'Compassionate guidance through divorce, custody, adoption, and family-related legal matters.'
-    },
-    {
-      icon: HomeIcon,
-      title: 'Real Estate Law',
-      description: 'Expert handling of property transactions, disputes, and real estate development matters.'
-    },
-    {
-      icon: Lightbulb,
-      title: 'Intellectual Property',
-      description: 'Protection of patents, trademarks, copyrights, and trade secrets for innovators and creators.'
-    },
-    {
-      icon: UserCheck,
-      title: 'Labour & Employment',
-      description: 'Advocacy for both employers and employees in workplace disputes and employment contracts.'
+      title: 'Documentation & Property',
+      description: 'Expert preparation and perfection of security documents, conveyances, leases, mortgages, and property instruments.'
     },
     {
       icon: Briefcase,
-      title: 'Commercial Litigation',
-      description: 'Strategic representation in business disputes, contract breaches, and commercial conflicts.'
+      title: 'Corporate Services',
+      description: 'Business incorporation, company secretarial services, annual returns, and comprehensive corporate documentation.'
     },
     {
       icon: Shield,
-      title: 'Immigration Law',
-      description: 'Guidance through visa applications, citizenship processes, and immigration compliance.'
+      title: 'Legal Advisory',
+      description: 'Professional guidance on tax matters, insurance law, government regulations, and labor relations.'
+    },
+    {
+      icon: Gavel,
+      title: 'Litigation',
+      description: 'Robust representation in civil and criminal proceedings, including successful debt recovery.'
+    },
+    {
+      icon: UserCheck,
+      title: 'Business Support',
+      description: 'Attendance at business meetings, contract negotiations, and corporate governance matters.'
+    },
+    {
+      icon: Scale,
+      title: 'Dispute Resolution',
+      description: 'Expert handling of settlements, arbitration procedures, and alternative dispute resolution.'
     }
   ];
 
@@ -129,11 +119,11 @@ function App() {
   ];
 
   const milestones = [
-    { year: '1998', event: 'Firm founded by James Bakale' },
-    { year: '2005', event: 'Expanded to include corporate law division' },
-    { year: '2012', event: 'Opened second office in financial district' },
-    { year: '2018', event: 'Recognized as Top 50 Law Firms nationally' },
-    { year: '2023', event: 'Celebrating 25 years of legal excellence' }
+    { year: '1993', event: 'Firm registered as partnership for solicitors and advocates' },
+    { year: '1995', event: 'Established office in Kano' },
+    { year: '2000', event: 'Expanded operations to Abuja' },
+    { year: '2010', event: 'Grew to 5 legal practitioners' },
+    { year: '2023', event: 'Celebrating 30 years of legal excellence' }
   ];
 
   return (
@@ -147,7 +137,7 @@ function App() {
                 <Scale className="h-8 w-8 text-amber-400" />
               </div>
               <div>
-                <h1 className="text-xl font-serif font-bold text-blue-900">Bakale & Partners</h1>
+                <h1 className="text-xl font-serif font-bold text-blue-900">MKUMARANDCO</h1>
                 <p className="text-xs text-gray-600">Legal Chambers</p>
               </div>
             </div>
@@ -206,10 +196,11 @@ function App() {
 
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-serif font-bold text-white mb-6">
-            Your Trusted Partners in Justice
+            Excellence in Legal Practice Since 1993
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed">
-            For over 25 years, Bakale & Partners Legal Chambers has provided exceptional legal representation with unwavering commitment to integrity, excellence, and advocacy.
+            M.K. UMAR & CO. has been providing exceptional legal services from our offices in Kano and Abuja, 
+            with a commitment to professionalism and client success.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
@@ -238,55 +229,84 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-blue-900 mb-4">About Our Firm</h2>
-            <div className="w-24 h-1 bg-amber-500 mx-auto"></div>
+            <div className="w-24 h-1 bg-amber-500 mx-auto mb-6"></div>
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+              A legacy of legal excellence, professional integrity, and comprehensive client service
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-            <div>
+          <div className="grid md:grid-cols-2 gap-12 items-start mb-16">
+            <div className="space-y-6">
               <img
                 src="https://images.pexels.com/photos/6077326/pexels-photo-6077326.jpeg?auto=compress&cs=tinysrgb&w=1200"
                 alt="Legal team"
-                className="rounded-lg shadow-2xl"
+                className="rounded-lg shadow-2xl mb-6"
               />
-            </div>
-            <div>
-              <h3 className="text-3xl font-serif font-bold text-gray-900 mb-6">Our Legacy</h3>
-              <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-                Founded in 1998, Bakale & Partners Legal Chambers has grown from a small practice into one of the region's most respected law firms. Our success is built on a foundation of client trust, legal expertise, and an unwavering commitment to justice.
-              </p>
-              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                We understand that legal matters can be complex and stressful. That's why we combine deep legal knowledge with a personal touch, ensuring every client receives the attention and representation they deserve.
-              </p>
-
-              <div className="space-y-4">
-                <div className="flex items-start gap-4">
-                  <div className="bg-blue-100 p-3 rounded-lg">
-                    <Award className="h-6 w-6 text-blue-900" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900 mb-1">Excellence</h4>
-                    <p className="text-gray-600">Delivering outstanding legal services with meticulous attention to detail.</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="bg-blue-100 p-3 rounded-lg">
-                    <Shield className="h-6 w-6 text-blue-900" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900 mb-1">Integrity</h4>
-                    <p className="text-gray-600">Operating with honesty, transparency, and the highest ethical standards.</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="bg-blue-100 p-3 rounded-lg">
-                    <Users className="h-6 w-6 text-blue-900" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900 mb-1">Advocacy</h4>
-                    <p className="text-gray-600">Fiercely defending our clients' rights and interests in every matter.</p>
-                  </div>
-                </div>
+              <div className="bg-blue-50 p-6 rounded-lg">
+                <h4 className="font-bold text-blue-900 mb-4">Key Expertise Areas</h4>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <Scale className="h-5 w-5 text-amber-500 mt-1" />
+                    <span className="text-gray-700">Security and property documentation</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Building2 className="h-5 w-5 text-amber-500 mt-1" />
+                    <span className="text-gray-700">Corporate services and business registration</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Shield className="h-5 w-5 text-amber-500 mt-1" />
+                    <span className="text-gray-700">Legal advisory and compliance</span>
+                  </li>
+                </ul>
               </div>
+            </div>
+
+            <div className="space-y-6">
+              <div className="prose prose-lg">
+                <h3 className="text-3xl font-serif font-bold text-gray-900 mb-6">Our Legacy</h3>
+                <p className="text-gray-700 mb-4">
+                  M.K. UMAR & CO. was established in 1993 as a partnership for solicitors and advocates. With offices in Kano and Abuja, 
+                  we have built a reputation for excellence in legal services across Nigeria.
+                </p>
+                <p className="text-gray-700 mb-4">
+                  Our team of 5 distinguished legal practitioners brings diverse expertise and extensive experience to every case. 
+                  We take pride in our meticulous approach to client briefs and our commitment to professional excellence.
+                </p>
+                <p className="text-gray-700 mb-6">
+                  Over the years, we have earned the trust of financial institutions, companies, and private individuals through our 
+                  dedicated service and proven track record of success.
+                </p>
+              </div>
+
+              <div className="bg-gradient-to-br from-blue-50 to-amber-50 p-6 rounded-lg">
+                <h4 className="font-bold text-blue-900 mb-4">Our Professional Services Include:</h4>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <Briefcase className="h-5 w-5 text-amber-500 mt-1" />
+                    <span className="text-gray-700">Comprehensive documentation services including conveyances, leases, assignments, and security instruments</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Building2 className="h-5 w-5 text-amber-500 mt-1" />
+                    <span className="text-gray-700">Business registration, incorporation, and corporate compliance services</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Users className="h-5 w-5 text-amber-500 mt-1" />
+                    <span className="text-gray-700">Expert representation in civil and criminal litigation</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Shield className="h-5 w-5 text-amber-500 mt-1" />
+                    <span className="text-gray-700">Advisory services in tax, insurance, and labor relations</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Scale className="h-5 w-5 text-amber-500 mt-1" />
+                    <span className="text-gray-700">Professional debt recovery and collection services</span>
+                  </li>
+                </ul>
+              </div>
+
+              <blockquote className="border-l-4 border-amber-500 pl-4 italic text-lg text-gray-700">
+                "We have the skills, competence and capabilities to deliver exceptional results for our clients, backed by 30 years of proven excellence in legal practice."
+              </blockquote>
             </div>
           </div>
 
@@ -574,12 +594,12 @@ function App() {
                   <Scale className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-serif font-bold">Bakale & Partners</h3>
+                  <h3 className="text-lg font-serif font-bold">MKUMARANDCO</h3>
                   <p className="text-xs text-gray-300">Legal Chambers</p>
                 </div>
               </div>
               <p className="text-gray-300 text-sm leading-relaxed">
-                Committed to delivering exceptional legal services with integrity and excellence since 1998.
+                Delivering exceptional legal services with integrity and excellence since 1993. Based in Kano and Abuja, serving clients across Nigeria.
               </p>
             </div>
 
@@ -632,7 +652,7 @@ function App() {
           <div className="border-t border-blue-800 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-gray-400 text-sm text-center md:text-left">
-                &copy; 2025 Bakale & Partners Legal Chambers. All rights reserved.
+                &copy; 2025 MKUMARANDCO Legal Chambers. All rights reserved.
               </p>
               <p className="text-gray-400 text-sm text-center md:text-right">
                 Attorney Advertising. Prior results do not guarantee a similar outcome.
