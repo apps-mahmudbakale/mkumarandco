@@ -68,28 +68,49 @@ function App() {
 
   const teamMembers = [
     {
-      name: 'James Bakale',
-      title: 'Senior Partner',
+      name: 'Maliki Kuliya Umar, MNI',
+      title: 'Principal Partner',
       specialties: ['Corporate Law', 'Commercial Litigation'],
       image: 'https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg?auto=compress&cs=tinysrgb&w=800',
       bio: 'Over 25 years of experience in corporate law and commercial litigation.'
     },
     {
-      name: 'Sarah Mitchell',
+      name: 'Sani Ismail',
       title: 'Partner',
       specialties: ['Family Law', 'Real Estate'],
       image: 'https://images.pexels.com/photos/3760607/pexels-photo-3760607.jpeg?auto=compress&cs=tinysrgb&w=800',
       bio: 'Dedicated advocate with 15 years specializing in family and property matters.'
     },
     {
-      name: 'David Chen',
+      name: "Muhammad B. Dan'azumi",
       title: 'Partner',
       specialties: ['Criminal Defense', 'Immigration'],
       image: 'https://images.pexels.com/photos/5668882/pexels-photo-5668882.jpeg?auto=compress&cs=tinysrgb&w=800',
       bio: 'Former prosecutor bringing unique insights to criminal defense cases.'
     },
     {
-      name: 'Emily Rodriguez',
+      name: 'Umar Sa\'id',
+      title: 'Associate Partner',
+      specialties: ['Intellectual Property', 'Labour Law'],
+      image: 'https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=800',
+      bio: 'Tech-savvy attorney specializing in IP protection and employment matters.'
+    },
+    {
+      name: 'Nura Abubakar',
+      title: 'Associate Partner',
+      specialties: ['Civil Litigation', 'Bankruptcy'],
+      image: 'https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=800',
+      bio: 'Experienced advocate with expertise in civil litigation and bankruptcy matters.'
+    },
+    {
+      name: 'Idrees Kuliya',
+      title: 'Associate Partner',
+      specialties: ['Criminal Defense', 'Immigration'],
+      image: 'https://images.pexels.com/photos/5668882/pexels-photo-5668882.jpeg?auto=compress&cs=tinysrgb&w=800',
+      bio: 'Former prosecutor bringing unique insights to criminal defense cases.'
+    },
+    {
+      name: 'Suleman Hassan',
       title: 'Associate Partner',
       specialties: ['Intellectual Property', 'Labour Law'],
       image: 'https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=800',
@@ -187,7 +208,7 @@ function App() {
       <section id="home" className="relative h-screen flex items-center justify-center">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.pexels.com/photos/8111831/pexels-photo-8111831.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            src="https://png.pngtree.com/thumb_back/fh260/background/20251023/pngtree-justice-scales-and-gavel-resting-on-open-law-book-ready-for-image_19965492.webp"
             alt="Law office"
             className="w-full h-full object-cover"
           />
@@ -484,7 +505,7 @@ function App() {
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 focus:border-transparent outline-none transition-all"
-                    placeholder="+1 (555) 123-4567"
+                    placeholder="+234801223445456"
                   />
                 </div>
                 <div>
@@ -517,18 +538,27 @@ function App() {
                     <div className="bg-blue-100 p-3 rounded-lg">
                       <MapPin className="h-6 w-6 text-blue-900" />
                     </div>
-                    <div>
-                      <h4 className="font-bold text-gray-900 mb-1">Office Address</h4>
-                      <p className="text-gray-600">123 Justice Avenue, Suite 500<br />Financial District, New York, NY 10004</p>
-                    </div>
+                   <div>
+                    <h4 className="font-bold text-gray-900 mb-2">KANO HEAD OFFICE</h4>
+                    <p className="text-gray-700">217 Ismaila Gano Street Behind Trade Fair Complex Adj. NSITF Gandu Kano</p>
                   </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                  <div className="bg-blue-100 p-3 rounded-lg">
+                    <MapPin className="h-6 w-6 text-blue-900" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-2">ABUJA OFFICE</h4>
+                    <p className="text-gray-700">Suite B58, Area 11 Shopping centre. Ahmadu Way Area 11 Garki Abuja.</p>
+                  </div>
+                </div>
                   <div className="flex items-start gap-4">
                     <div className="bg-blue-100 p-3 rounded-lg">
                       <Phone className="h-6 w-6 text-blue-900" />
                     </div>
                     <div>
                       <h4 className="font-bold text-gray-900 mb-1">Phone</h4>
-                      <p className="text-gray-600">+1 (555) 123-4567<br />+1 (555) 123-4568</p>
+                      <p className="text-gray-600">+2348036526567<br />+2348039135223</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
@@ -537,7 +567,7 @@ function App() {
                     </div>
                     <div>
                       <h4 className="font-bold text-gray-900 mb-1">Email</h4>
-                      <p className="text-gray-600">info@bakalepartners.com<br />consult@bakalepartners.com</p>
+                      <p className="text-gray-600">info@mkumarandco.com<br />mkumarandco@mkumarandco.com</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
