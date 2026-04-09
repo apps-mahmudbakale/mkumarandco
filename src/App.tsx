@@ -1,14 +1,25 @@
-import React, { useState } from 'react';
-import { Scale, Menu, X, ChevronRight, Phone, Mail, MapPin, Clock, Award, Users, Shield, Briefcase, Home as HomeIcon, UserCheck, Building2, Heart, Lightbulb, Gavel, Star, Send, Linkedin, Twitter, Facebook } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Scale, Menu, X, ChevronRight, Phone, Mail, MapPin, Clock, Briefcase, Building2, Gavel, Send, Linkedin, Twitter, Facebook, Award } from 'lucide-react';
+import Maliki from './Maliki.jpeg';
+import Ismail from './Ismail.jpeg';
+import Nura from './Nura.jpeg';
+import Idrees from './Idrees.jpeg';
+import Hauwa from './Hauwa.jpeg';
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [selectedMember, setSelectedMember] = useState<number | null>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     message: ''
   });
+
+  useEffect(() => {
+    document.body.style.overflow = selectedMember !== null ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [selectedMember]);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -29,123 +40,119 @@ function App() {
     { name: 'About', href: 'about' },
     { name: 'Team', href: 'team' },
     { name: 'Practice Areas', href: 'practice' },
-    { name: 'Testimonials', href: 'testimonials' },
     { name: 'Contact', href: 'contact' },
   ];
 
   const practiceAreas = [
     {
-      icon: Building2,
-      title: 'Documentation & Property',
-      description: 'Expert preparation and perfection of security documents, conveyances, leases, mortgages, and property instruments.'
+      icon: Gavel,
+      title: 'Litigation & Advocacy',
+      description: 'Robust representation in civil and criminal proceedings, including successful debt recovery and general advocacy.'
     },
     {
       icon: Briefcase,
-      title: 'Corporate Services',
-      description: 'Business incorporation, company secretarial services, annual returns, and comprehensive corporate documentation.'
+      title: 'Corporate Services, Pre & Post Incorporation Matters',
+      description: 'Business incorporation, registration, annual returns, and comprehensive corporate documentation.'
     },
     {
-      icon: Shield,
-      title: 'Legal Advisory',
-      description: 'Professional guidance on tax matters, insurance law, government regulations, and labor relations.'
-    },
-    {
-      icon: Gavel,
-      title: 'Litigation',
-      description: 'Robust representation in civil and criminal proceedings, including successful debt recovery.'
-    },
-    {
-      icon: UserCheck,
-      title: 'Business Support',
-      description: 'Attendance at business meetings, contract negotiations, and corporate governance matters.'
+      icon: Building2,
+      title: 'Company Secretaryship, Advisory & Compliance',
+      description: 'Company secretarial services, professional guidance on tax matters, insurance law, government regulations, and labor relations.'
     },
     {
       icon: Scale,
-      title: 'Dispute Resolution',
-      description: 'Expert handling of settlements, arbitration procedures, and alternative dispute resolution.'
+      title: 'Maritime & Shipping',
+      description: 'Expert legal services in maritime law, shipping transactions, and related regulatory compliance.'
     }
   ];
 
   const teamMembers = [
     {
-      name: 'Maliki Kuliya Umar, MNI',
-      title: 'Principal Partner',
-      specialties: ['Corporate Law', 'Commercial Litigation'],
-      image: 'https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg?auto=compress&cs=tinysrgb&w=800',
-      bio: 'Over 25 years of experience in corporate law and commercial litigation.'
+      name: 'Maliki Kuliya Umar, mni',
+      title: 'Managing Partner',
+      called: 'Called to Bar in 1984',
+      highlights: [
+        'Former Attorney General/Commissioner for Justice, Kano State',
+        'Notary Public',
+        'Member Kano State Judicial Service Commission for 10 years'
+      ],
+      image: Maliki,
+      bio: 'He was called to the Nigerian Bar in 1984. He was Attorney-General and Commissioner for Justice, Kano State from 2011 to 2015. He worked in the Legal Services Department of First Bank of Nigeria, Plc for about 23 years. He was appointed Secretary of the Business Support Group (BSG) under Vision 2020 by former President Umaru Musa \'Yar\'adua. He served as member of Kano State Judicial Service Commission for 10 years (1999–2009). He is a Certified Notary Public with deep expertise in banking laws and debt recovery.'
     },
     {
       name: 'Sani Ismail',
       title: 'Partner',
-      specialties: ['Family Law', 'Real Estate'],
-      image: 'https://images.pexels.com/photos/3760607/pexels-photo-3760607.jpeg?auto=compress&cs=tinysrgb&w=800',
-      bio: 'Dedicated advocate with 15 years specializing in family and property matters.'
+      called: 'Called to Bar in 1990',
+      highlights: [
+        'Former Chief Magistrate',
+        'Former Secretary of Judicial Service Commission'
+      ],
+      image: Ismail,
+      bio: 'He was called to the Bar in 1990 and heads the litigation section of the firm. He served in the Kano State Judiciary at various levels including Chief Magistrate and Secretary of Judicial Service Commission. He attended courses in Nigeria and abroad on human rights litigation, Alternative Dispute Resolution, Employment Law, and Judicial Administration.'
     },
     {
       name: "Muhammad B. Dan'azumi",
-      title: 'Partner',
-      specialties: ['Criminal Defense', 'Immigration'],
-      image: 'https://images.pexels.com/photos/5668882/pexels-photo-5668882.jpeg?auto=compress&cs=tinysrgb&w=800',
-      bio: 'Former prosecutor bringing unique insights to criminal defense cases.'
-    },
-    {
-      name: 'Umar Sa\'id',
       title: 'Associate Partner',
-      specialties: ['Intellectual Property', 'Labour Law'],
-      image: 'https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=800',
-      bio: 'Tech-savvy attorney specializing in IP protection and employment matters.'
-    },
-    {
-      name: 'Nura Abubakar',
-      title: 'Associate Partner',
-      specialties: ['Civil Litigation', 'Bankruptcy'],
-      image: 'https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=800',
-      bio: 'Experienced advocate with expertise in civil litigation and bankruptcy matters.'
+      called: 'Called to Bar in 2003',
+      highlights: [
+        'Former Prosecutor, Kano State Ministry of Justice',
+        'Former Judge of the High Court, Republic of The Gambia'
+      ],
+      image: null,
+      initials: 'MD',
+      bio: 'A graduate of University of Sokoto, called to the Bar in 2003. He worked as State Counsel at the Ministry of Justice, Kano, handling Public Prosecution and Civil Litigation. He served as a Judge of the High Court in the Republic of The Gambia (2015–2016). He currently heads the Criminal Litigations Department.'
     },
     {
       name: 'Idrees Kuliya',
-      title: 'Associate Partner',
-      specialties: ['Criminal Defense', 'Immigration'],
-      image: 'https://images.pexels.com/photos/5668882/pexels-photo-5668882.jpeg?auto=compress&cs=tinysrgb&w=800',
-      bio: 'Former prosecutor bringing unique insights to criminal defense cases.'
+      title: 'Junior Partner',
+      called: 'Called to Bar in 2015',
+      highlights: [
+        'LL.M in Maritime Law (UK)',
+        'MBA (Finance & Investment)',
+        'Member Institute of Chartered Secretaries & Administrators of Nigeria (ICSAN)',
+        'Member Chartered Institute of Taxation of Nigeria'
+      ],
+      image: Idrees,
+      bio: 'A graduate of Bayero University Kano, called to the Bar in 2015. He holds an LL.M in Maritime Law from the University of Hertfordshire, UK, and an MBA from Ahmadu Bello University Zaria. He is a member of BRIPAN, CITN, AERMP, African Bar Association, and International Bar Association.'
     },
     {
-      name: 'Suleman Hassan',
-      title: 'Associate Partner',
-      specialties: ['Intellectual Property', 'Labour Law'],
-      image: 'https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=800',
-      bio: 'Tech-savvy attorney specializing in IP protection and employment matters.'
+      name: 'Umar Said',
+      title: 'Senior Associate',
+      called: 'Called to Bar in 2012',
+      highlights: [
+        'Seasoned Litigator',
+        'Master of Laws (LL.M)'
+      ],
+      image: null,
+      initials: 'US',
+      bio: 'A graduate of Bayero University Kano, called to the Bar in 2012. He holds an LL.M (2018) from Ahmadu Bello University. He has been engaged in private legal practice and has acquired tremendous experience in litigation, attending several trainings to improve his knowledge and skills.'
+    },
+    {
+      name: 'Nura Abubakar',
+      title: 'Senior Associate',
+      called: 'Called to Bar in 2015',
+      highlights: [
+        'Seasoned Litigator',
+        'Vast experience across multiple Jurisdictions'
+      ],
+      image: Nura,
+      bio: 'A graduate of Bayero University, Kano, called to the Bar in 2015. He has been in active practice across several jurisdictions particularly Kano, Abuja, Adamawa, Taraba and Katsina States.'
+    },
+    {
+      name: 'Hauwa Muhammad',
+      title: 'Junior Counsel',
+      called: 'Called to Bar in 2025',
+      highlights: [
+        'Graduate of Common and Islamic Law, Bayero University Kano',
+        'Committed to continuous learning across multiple areas of law'
+      ],
+      image: Hauwa,
+      bio: 'She is a graduate of Bayero University, Kano where she studied Common and Islamic Law, and was called to the Bar in 2025. She is at the early stage of her legal career and is committed to building a strong foundation in legal practice. Hauwa Ahmad Muhd is dedicated to professional growth and has demonstrated a keen interest in developing her knowledge and skills across various areas of law through continuous learning and practical exposure.'
     }
   ];
 
-  const testimonials = [
-    {
-      name: 'Michael Thompson',
-      company: 'Thompson Industries',
-      text: 'Bakale & Partners provided exceptional guidance through our merger. Their professionalism and expertise made a complex process seamless.',
-      rating: 5
-    },
-    {
-      name: 'Jennifer Adams',
-      company: 'Private Client',
-      text: 'During my divorce proceedings, Sarah Mitchell was compassionate yet strong. I felt supported every step of the way.',
-      rating: 5
-    },
-    {
-      name: 'Robert Chen',
-      company: 'Tech Innovations Ltd',
-      text: 'Outstanding IP protection services. They secured our patents efficiently and provided strategic advice for our business.',
-      rating: 5
-    }
-  ];
 
-  const milestones = [
-    { year: '1993', event: 'Firm registered as partnership for solicitors and advocates' },
-    { year: '1995', event: 'Established office in Kano' },
-    { year: '2000', event: 'Expanded operations to Abuja' },
-    { year: '2010', event: 'Grew to 5 legal practitioners' },
-    { year: '2023', event: 'Celebrating 30 years of legal excellence' }
-  ];
+
 
   return (
     <div className="min-h-screen bg-white">
@@ -158,8 +165,8 @@ function App() {
                 <Scale className="h-8 w-8 text-amber-400" />
               </div>
               <div>
-                <h1 className="text-xl font-serif font-bold text-blue-900">MKUMARANDCO</h1>
-                <p className="text-xs text-gray-600">Legal Chambers</p>
+                <h1 className="text-xl font-serif font-bold text-blue-900">M.K UMAR & CO</h1>
+                <p className="text-xs text-gray-600">Barristers, Advocates, Notaries Public</p>
               </div>
             </div>
 
@@ -220,8 +227,7 @@ function App() {
             Excellence in Legal Practice Since 1993
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed">
-            M.K. UMAR & CO. has been providing exceptional legal services from our offices in Kano and Abuja, 
-            with a commitment to professionalism and client success.
+            M.K. UMAR & CO. is a full-service law firm dedicated to delivering strategic, high-quality legal solutions. We are committed to excellence, professionalism, and providing clients with trusted guidance and effective representation.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
@@ -249,10 +255,10 @@ function App() {
       <section id="about" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-blue-900 mb-4">About Our Firm</h2>
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-blue-900 mb-4">About Us</h2>
             <div className="w-24 h-1 bg-amber-500 mx-auto mb-6"></div>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              A legacy of legal excellence, professional integrity, and comprehensive client service
+              Excellence in Legal Practice Since 1993
             </p>
           </div>
 
@@ -267,16 +273,20 @@ function App() {
                 <h4 className="font-bold text-blue-900 mb-4">Key Expertise Areas</h4>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
-                    <Scale className="h-5 w-5 text-amber-500 mt-1" />
-                    <span className="text-gray-700">Security and property documentation</span>
+                    <Gavel className="h-5 w-5 text-amber-500 mt-1" />
+                    <span className="text-gray-700">Litigation & Advocacy</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Briefcase className="h-5 w-5 text-amber-500 mt-1" />
+                    <span className="text-gray-700">Corporate Services, Pre & Post Incorporation Matters</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <Building2 className="h-5 w-5 text-amber-500 mt-1" />
-                    <span className="text-gray-700">Corporate services and business registration</span>
+                    <span className="text-gray-700">Company Secretaryship, Advisory & Compliance</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <Shield className="h-5 w-5 text-amber-500 mt-1" />
-                    <span className="text-gray-700">Legal advisory and compliance</span>
+                    <Scale className="h-5 w-5 text-amber-500 mt-1" />
+                    <span className="text-gray-700">Maritime & Shipping</span>
                   </li>
                 </ul>
               </div>
@@ -286,43 +296,21 @@ function App() {
               <div className="prose prose-lg">
                 <h3 className="text-3xl font-serif font-bold text-gray-900 mb-6">Our Legacy</h3>
                 <p className="text-gray-700 mb-4">
-                  M.K. UMAR & CO. was established in 1993 as a partnership for solicitors and advocates. With offices in Kano and Abuja, 
-                  we have built a reputation for excellence in legal services across Nigeria.
+                  M.K. UMAR & CO. was established in 1993 as a firm of solicitors and advocates. Over the years, we have built a strong reputation for delivering reliable and effective legal services to clients across Nigeria.
                 </p>
                 <p className="text-gray-700 mb-4">
-                  Our team of 5 distinguished legal practitioners brings diverse expertise and extensive experience to every case. 
-                  We take pride in our meticulous approach to client briefs and our commitment to professional excellence.
+                  Our team of seasoned legal practitioners offers a broad range of expertise, bringing depth, precision, and strategic insight to every brief. We pride ourselves on our meticulous approach, strong advocacy, and unwavering commitment to professional excellence.
                 </p>
                 <p className="text-gray-700 mb-6">
-                  Over the years, we have earned the trust of financial institutions, companies, and private individuals through our 
-                  dedicated service and proven track record of success.
+                  Through consistent performance and dedicated service, we have earned the confidence of financial institutions, corporate organizations, and private clients, maintaining a proven track record of achieving successful outcomes.
                 </p>
               </div>
 
               <div className="bg-gradient-to-br from-blue-50 to-amber-50 p-6 rounded-lg">
-                <h4 className="font-bold text-blue-900 mb-4">Our Professional Services Include:</h4>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <Briefcase className="h-5 w-5 text-amber-500 mt-1" />
-                    <span className="text-gray-700">Comprehensive documentation services including conveyances, leases, assignments, and security instruments</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Building2 className="h-5 w-5 text-amber-500 mt-1" />
-                    <span className="text-gray-700">Business registration, incorporation, and corporate compliance services</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Users className="h-5 w-5 text-amber-500 mt-1" />
-                    <span className="text-gray-700">Expert representation in civil and criminal litigation</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Shield className="h-5 w-5 text-amber-500 mt-1" />
-                    <span className="text-gray-700">Advisory services in tax, insurance, and labor relations</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Scale className="h-5 w-5 text-amber-500 mt-1" />
-                    <span className="text-gray-700">Professional debt recovery and collection services</span>
-                  </li>
-                </ul>
+                <h4 className="font-bold text-blue-900 mb-4">About Us</h4>
+                <p className="text-gray-700 leading-relaxed">
+                  The firm was registered in 1993 as a partnership for solicitors and advocates and has its offices situate at Kano and Abuja. It provides services in various aspects of legal profession especially advocacy, drafting and perfection of various instruments, debt recovery and general legal advice. The firm has legal practitioners with diverse experiences, well trained and equipped to professionally handle its client's briefs meticulously and diligently. Its services are patronized by multiple Government Agencies, Financial institutions, Companies and private individuals.
+                </p>
               </div>
 
               <blockquote className="border-l-4 border-amber-500 pl-4 italic text-lg text-gray-700">
@@ -331,67 +319,152 @@ function App() {
             </div>
           </div>
 
-          {/* Timeline */}
-          <div className="bg-gradient-to-br from-blue-50 to-amber-50 rounded-2xl p-8 md:p-12">
-            <h3 className="text-3xl font-serif font-bold text-center text-blue-900 mb-12">Our Journey</h3>
-            <div className="space-y-6">
-              {milestones.map((milestone, index) => (
-                <div key={index} className="flex items-center gap-6 group">
-                  <div className="bg-gradient-to-br from-blue-900 to-blue-700 text-white font-bold px-6 py-3 rounded-lg shadow-lg min-w-[100px] text-center group-hover:scale-110 transition-transform duration-300">
-                    {milestone.year}
-                  </div>
-                  <div className="flex-1 bg-white p-4 rounded-lg shadow-md group-hover:shadow-xl transition-shadow duration-300">
-                    <p className="text-gray-800 font-medium">{milestone.event}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
       {/* Team Section */}
-      <section id="team" className="py-20 bg-gray-50">
+      <section id="team" className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
+            <p className="text-amber-600 font-semibold tracking-widest uppercase text-sm mb-3">Legal Professionals</p>
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-blue-900 mb-4">Our Team</h2>
             <div className="w-24 h-1 bg-amber-500 mx-auto mb-6"></div>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Meet the experienced legal professionals dedicated to protecting your interests
+            <p className="text-lg text-gray-500 max-w-2xl mx-auto">
+              Seasoned practitioners committed to delivering precise, strategic, and effective legal counsel.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+                className="bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300 flex flex-col"
               >
-                <div className="relative h-64 overflow-hidden">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent"></div>
+                {/* Photo */}
+                <div className="relative h-[26rem] overflow-hidden bg-blue-900">
+                  {member.image ? (
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover object-top"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center">
+                      <span className="text-white font-serif text-6xl font-bold opacity-30 select-none">
+                        {(member as any).initials}
+                      </span>
+                    </div>
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-blue-900/20 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-5">
+                    <h3 className="text-white font-serif text-lg font-bold leading-tight drop-shadow">{member.name}</h3>
+                    <p className="text-amber-400 text-sm font-semibold mt-0.5">{member.title}</p>
+                  </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
-                  <p className="text-amber-600 font-semibold mb-3">{member.title}</p>
-                  <p className="text-gray-600 text-sm mb-4">{member.bio}</p>
-                  <div className="space-y-2">
-                    {member.specialties.map((specialty, idx) => (
-                      <div key={idx} className="flex items-center gap-2">
-                        <Scale className="h-4 w-4 text-blue-900" />
-                        <span className="text-sm text-gray-700">{specialty}</span>
-                      </div>
-                    ))}
+
+                {/* Card body */}
+                <div className="px-6 py-5 flex flex-col flex-1">
+                  <div className="flex items-center gap-2 mb-5">
+                    <span className="inline-block w-2 h-2 rounded-full bg-amber-500"></span>
+                    <span className="text-sm text-blue-800 font-medium">{member.called}</span>
+                  </div>
+                  <div className="mt-auto">
+                    <button
+                      onClick={() => setSelectedMember(index)}
+                      className="w-full bg-blue-900 hover:bg-blue-800 text-white text-sm font-semibold py-3 rounded-xl transition-colors duration-200 tracking-wide"
+                    >
+                      View Profile
+                    </button>
                   </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
+
+        {/* Modal */}
+        {selectedMember !== null && (() => {
+          const m = teamMembers[selectedMember];
+          return (
+            <div
+              className="fixed inset-0 z-50 flex items-center justify-center p-4"
+              onClick={() => setSelectedMember(null)}
+            >
+              {/* Backdrop */}
+              <div className="absolute inset-0 bg-blue-950/70 backdrop-blur-sm" />
+
+              {/* Panel */}
+              <div
+                className="relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/* Header image strip */}
+                <div className="relative h-[33rem] overflow-hidden rounded-t-2xl bg-blue-900">
+                  {m.image ? (
+                    <img
+                      src={m.image}
+                      alt={m.name}
+                      className="w-full h-full object-cover object-top"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center">
+                      <span className="text-white font-serif text-8xl font-bold opacity-20 select-none">
+                        {(m as any).initials}
+                      </span>
+                    </div>
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-blue-950/85 via-blue-900/30 to-transparent" />
+                  <button
+                    onClick={() => setSelectedMember(null)}
+                    className="absolute top-4 right-4 bg-white/20 hover:bg-white/40 backdrop-blur-sm text-white rounded-full p-2 transition-colors"
+                    aria-label="Close"
+                  >
+                    <X className="h-5 w-5" />
+                  </button>
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <h3 className="text-white font-serif text-2xl font-bold drop-shadow">{m.name}</h3>
+                    <p className="text-amber-400 font-semibold mt-1">{m.title}</p>
+                  </div>
+                </div>
+
+                {/* Body */}
+                <div className="p-6 space-y-6">
+                  {/* Called to bar badge */}
+                  <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-900 text-sm font-semibold px-4 py-2 rounded-full">
+                    <Scale className="h-4 w-4 text-amber-500" />
+                    {m.called}
+                  </div>
+
+                  {/* Bio */}
+                  <div>
+                    <h4 className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Biography</h4>
+                    <p className="text-gray-700 leading-relaxed text-sm">{m.bio}</p>
+                  </div>
+
+                  {/* Highlights */}
+                  <div>
+                    <h4 className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">Career Highlights</h4>
+                    <ul className="space-y-2">
+                      {m.highlights.map((h, i) => (
+                        <li key={i} className="flex items-start gap-3">
+                          <Award className="h-4 w-4 text-amber-500 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-gray-700">{h}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <button
+                    onClick={() => setSelectedMember(null)}
+                    className="w-full border border-blue-900 text-blue-900 hover:bg-blue-900 hover:text-white text-sm font-semibold py-3 rounded-xl transition-colors duration-200"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          );
+        })()}
       </section>
 
       {/* Practice Areas Section */}
@@ -420,39 +493,6 @@ function App() {
                   Learn More
                   <ChevronRight className="h-4 w-4" />
                 </button>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section id="testimonials" className="py-20 bg-gradient-to-br from-blue-900 to-blue-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-4">Client Testimonials</h2>
-            <div className="w-24 h-1 bg-amber-500 mx-auto mb-6"></div>
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
-              What our clients say about working with us
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
-              >
-                <div className="flex gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 fill-amber-400 text-amber-400" />
-                  ))}
-                </div>
-                <p className="text-gray-700 mb-6 leading-relaxed italic">"{testimonial.text}"</p>
-                <div className="border-t pt-4">
-                  <p className="font-bold text-gray-900">{testimonial.name}</p>
-                  <p className="text-sm text-gray-600">{testimonial.company}</p>
-                </div>
               </div>
             ))}
           </div>
@@ -597,10 +637,10 @@ function App() {
                 </div>
               </div>
 
-              {/* Google Maps */}
+              {/* Google Maps - Kano */}
               <div className="bg-white rounded-xl shadow-lg overflow-hidden h-80">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.2219901290355!2d-74.00601368459391!3d40.71312797933044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a165bedccab%3A0x2cb2ddf003b67021!2sFinancial%20District%2C%20New%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1234567890"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3903.1!2d8.5167!3d12.0022!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x11ae8286b5f7b3b3%3A0x0!2sIsmaila+Gano+Street%2C+Kano!5e0!3m2!1sen!2sng!4v1234567890"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -624,8 +664,8 @@ function App() {
                   <Scale className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-serif font-bold">MKUMARANDCO</h3>
-                  <p className="text-xs text-gray-300">Legal Chambers</p>
+                  <h3 className="text-lg font-serif font-bold">MKUMAR & CO</h3>
+                  <p className="text-xs text-gray-300">Barristers, Advocates, Notaries Public</p>
                 </div>
               </div>
               <p className="text-gray-300 text-sm leading-relaxed">
@@ -652,11 +692,11 @@ function App() {
             <div>
               <h4 className="font-bold text-lg mb-4">Practice Areas</h4>
               <ul className="space-y-2 text-sm">
-                <li className="text-gray-300">Corporate Law</li>
-                <li className="text-gray-300">Criminal Defense</li>
-                <li className="text-gray-300">Family Law</li>
-                <li className="text-gray-300">Real Estate</li>
-                <li className="text-gray-300">Intellectual Property</li>
+                <li className="text-gray-300">Litigation & Advocacy</li>
+                <li className="text-gray-300">Corporate Services</li>
+                <li className="text-gray-300">Company Secretaryship</li>
+                <li className="text-gray-300">Advisory & Compliance</li>
+                <li className="text-gray-300">Maritime & Shipping</li>
               </ul>
             </div>
 
@@ -665,15 +705,19 @@ function App() {
               <ul className="space-y-3 text-sm">
                 <li className="flex items-center gap-2 text-gray-300">
                   <Phone className="h-4 w-4" />
-                  +1 (555) 123-4567
+                  +2348036526567
+                </li>
+                <li className="flex items-center gap-2 text-gray-300">
+                  <Phone className="h-4 w-4" />
+                  +2348039135223
                 </li>
                 <li className="flex items-center gap-2 text-gray-300">
                   <Mail className="h-4 w-4" />
-                  info@bakalepartners.com
+                  idreeskuliya@gmail.com
                 </li>
                 <li className="flex items-start gap-2 text-gray-300">
                   <MapPin className="h-4 w-4 mt-1" />
-                  123 Justice Avenue, Suite 500<br />New York, NY 10004
+                  217 Ismaila Gano Street, Kano
                 </li>
               </ul>
             </div>
@@ -682,7 +726,7 @@ function App() {
           <div className="border-t border-blue-800 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-gray-400 text-sm text-center md:text-left">
-                &copy; 2025 MKUMARANDCO Legal Chambers. All rights reserved.
+                &copy; 2025 MKUMAR & CO. All rights reserved.
               </p>
               <p className="text-gray-400 text-sm text-center md:text-right">
                 Attorney Advertising. Prior results do not guarantee a similar outcome.
