@@ -9,6 +9,7 @@ import Hauwa from './Hauwa.jpeg';
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [selectedMember, setSelectedMember] = useState<number | null>(null);
+  const [selectedPracticeArea, setSelectedPracticeArea] = useState<number | null>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -17,9 +18,9 @@ function App() {
   });
 
   useEffect(() => {
-    document.body.style.overflow = selectedMember !== null ? 'hidden' : '';
+    document.body.style.overflow = selectedMember !== null || selectedPracticeArea !== null ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
-  }, [selectedMember]);
+  }, [selectedMember, selectedPracticeArea]);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -47,22 +48,32 @@ function App() {
     {
       icon: Gavel,
       title: 'Litigation & Advocacy',
-      description: 'Robust representation in civil and criminal proceedings, including successful debt recovery and general advocacy.'
+      description: 'Robust representation in civil and criminal proceedings, including successful debt recovery and general advocacy.',
+      fullContent: 'Our Litigation and Advocacy practice is structured to deliver decisive, results-oriented representation across a broad spectrum of civil and criminal matters. We act for individuals, corporate entities, and financial institutions, with particular strength in complex debt recovery, insolvency-related disputes, and commercial litigation.\n\nWe approach every matter with a combination of procedural precision and strategic foresight, conducting detailed case analysis, evidence evaluation, and risk assessment at the outset. This allows us to develop tailored litigation strategies aligned with our clients\' commercial realities and legal objectives. Whether through aggressive courtroom advocacy or carefully negotiated settlements, our priority remains the efficient resolution of disputes with minimal exposure.\n\nIn addition to trial work, we provide advisory services on dispute avoidance, pre-litigation negotiations, and enforcement of judgments, ensuring that our clients are protected at every stage of the dispute resolution lifecycle.'
     },
     {
       icon: Briefcase,
       title: 'Corporate Services, Pre & Post Incorporation Matters',
-      description: 'Business incorporation, registration, annual returns, and comprehensive corporate documentation.'
+      description: 'Business incorporation, registration, annual returns, and comprehensive corporate documentation.',
+      fullContent: 'We provide end-to-end corporate services designed to support businesses from inception through growth and regulatory maturity. Our firm assists with company incorporation, business name registration, and structuring of entities in compliance with applicable laws and regulatory frameworks. Our firm maintains an excellent professional relationship with industry regulators such as the Corporate Affairs Commission (CAC), Securities and Exchange Commission (SEC), Nigerian Revenue Service (NRS) amongst several others.\n\nBeyond incorporation, we manage post-incorporation obligations such as filing of annual returns, updating statutory records, and maintaining compliance with corporate governance requirements. We also prepare and review essential corporate documentation, including shareholders\' agreements, board resolutions, and internal governance policies.\n\nOur approach is both legal and strategic as we do not merely register companies; we help clients build legally sound corporate structures capable of supporting investment, expansion, and long-term sustainability.'
     },
     {
       icon: Building2,
       title: 'Company Secretaryship, Advisory & Compliance',
-      description: 'Company secretarial services, professional guidance on tax matters, insurance law, government regulations, and labor relations.'
+      description: 'Company secretarial services, professional guidance on tax matters, insurance law, government regulations, and labor relations.',
+      fullContent: 'Our Company Secretaryship and Advisory practice ensures that clients maintain the highest standards of corporate governance and regulatory compliance. We act as Company Secretaries to a range of organizations, providing structured support for board meetings, statutory filings, and maintenance of corporate records.\n\nWe offer expert guidance on regulatory compliance across multiple sectors, including tax advisory, insurance law, labor relations, and general business regulation. Our role extends beyond compliance, we serve as trusted advisors, helping clients interpret evolving legal requirements and align their operations accordingly.\n\nBy integrating legal insight with practical business considerations, we assist organizations in mitigating regulatory risks, enhancing operational efficiency, and maintaining credibility with stakeholders and regulators.\n\nThe firm\'s clientele retainerships include several private individuals and the following Corporate bodies:\n• National Deposit Insurance Corporation\n• First Bank of Nigeria Limited\n• Independent National Electoral Commission (INEC)\n• Klysat Cables and Wires Limited\n• Ultimate Gas Nigeria Limited\n• SKY Construction Company Limited\n• Ecobank Nigeria Limited\n• H&M Engineering Co. Limited\n• A.Y. Maikifi Nigeria Limited\n• The Seeds Project Limited\n• Gezawa Commodity Market Exchange Limited\n• Kano State Government of Nigeria'
     },
     {
       icon: Scale,
       title: 'Maritime & Shipping',
-      description: 'Expert legal services in maritime law, shipping transactions, and related regulatory compliance.'
+      description: 'Expert legal services in maritime law, shipping transactions, and related regulatory compliance.',
+      fullContent: 'Our Maritime and Shipping practice delivers specialized legal services tailored to the complexities of the maritime industry. With a strong foundation in maritime law, we advise on shipping transactions, vessel acquisition and financing, charterparty agreements, and cargo-related disputes.\n\nWe also provide regulatory compliance services, ensuring adherence to both local and international maritime standards. Our expertise extends to handling admiralty claims, marine insurance matters, and dispute resolution involving shipping operators, logistics companies, and port authorities.\n\nGiven the highly technical and cross-border nature of maritime operations, we adopt a commercially aware and detail-driven approach, ensuring that our clients\' interests are protected while facilitating smooth and compliant transactions within the global shipping ecosystem.\n\nOur firm also provides comprehensive legal support for international import and export transactions, with particular expertise in shipping arrangements such as Cost, Insurance and Freight (CIF), Documentary Credits, and other trade finance mechanisms.'
+    },
+    {
+      icon: Building2,
+      title: 'Asset & Property Management',
+      description: 'Strategic asset and property management services, including acquisition support, tenancy administration, lease structuring, and value optimization.',
+      fullContent: 'Our Asset and Property Management services are designed to help clients maximize the value and performance of their real estate and physical assets. We provide legal and strategic support in property acquisition, due diligence, title verification, and transaction structuring to ensure secure and efficient investments.\n\nWe also manage ongoing property interests, including lease drafting and negotiation, tenancy administration, rent recovery, and dispute resolution between landlords and tenants. Our services extend to regulatory compliance, ensuring that all property-related activities align with applicable land laws, planning regulations, and government requirements.\n\nWith a strong understanding of both legal frameworks and market dynamics, we assist clients in optimizing their asset portfolios, whether through improved occupancy structures, risk mitigation, or long-term value enhancement strategies.'
     }
   ];
 
@@ -478,7 +489,7 @@ function App() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
             {practiceAreas.map((area, index) => (
               <div
                 key={index}
@@ -487,9 +498,12 @@ function App() {
                 <div className="bg-gradient-to-br from-blue-900 to-blue-700 w-14 h-14 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                   <area.icon className="h-7 w-7 text-amber-400" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{area.title}</h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">{area.description}</p>
-                <button className="text-blue-900 font-semibold flex items-center gap-2 hover:gap-3 transition-all">
+                <h3 className="text-lg font-bold text-gray-900 mb-3">{area.title}</h3>
+                <p className="text-gray-600 mb-4 leading-relaxed text-sm">{area.description}</p>
+                <button
+                  onClick={() => setSelectedPracticeArea(index)}
+                  className="text-blue-900 font-semibold flex items-center gap-2 hover:gap-3 transition-all text-sm"
+                >
                   Learn More
                   <ChevronRight className="h-4 w-4" />
                 </button>
@@ -497,6 +511,64 @@ function App() {
             ))}
           </div>
         </div>
+
+        {/* Practice Area Modal */}
+        {selectedPracticeArea !== null && (() => {
+          const area = practiceAreas[selectedPracticeArea];
+          return (
+            <div
+              className="fixed inset-0 z-50 flex items-center justify-center p-4"
+              onClick={() => setSelectedPracticeArea(null)}
+            >
+              {/* Backdrop */}
+              <div className="absolute inset-0 bg-blue-950/70 backdrop-blur-sm" />
+
+              {/* Panel */}
+              <div
+                className="relative bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/* Header */}
+                <div className="sticky top-0 bg-gradient-to-r from-blue-900 to-blue-800 text-white p-6 flex items-start justify-between rounded-t-2xl">
+                  <div className="flex items-start gap-4">
+                    <div className="bg-white/20 p-3 rounded-lg">
+                      <area.icon className="h-8 w-8 text-amber-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-serif font-bold">{area.title}</h3>
+                      <p className="text-blue-100 text-sm mt-1">{area.description}</p>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => setSelectedPracticeArea(null)}
+                    className="bg-white/20 hover:bg-white/40 backdrop-blur-sm text-white rounded-full p-2 transition-colors flex-shrink-0"
+                    aria-label="Close"
+                  >
+                    <X className="h-5 w-5" />
+                  </button>
+                </div>
+
+                {/* Body */}
+                <div className="p-8 space-y-6">
+                  <div className="prose prose-sm max-w-none">
+                    {area.fullContent.split('\n\n').map((paragraph, i) => (
+                      <p key={i} className="text-gray-700 leading-relaxed whitespace-pre-wrap">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+
+                  <button
+                    onClick={() => setSelectedPracticeArea(null)}
+                    className="w-full border border-blue-900 text-blue-900 hover:bg-blue-900 hover:text-white text-sm font-semibold py-3 rounded-xl transition-colors duration-200"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          );
+        })()}
       </section>
 
       {/* Contact Section */}
